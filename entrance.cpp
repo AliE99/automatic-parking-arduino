@@ -26,7 +26,7 @@ void setup()
 void loop()
 {
     btnState = digitalRead(btn);
-    delay(100);
+    //delay(50);
     showParkingStatus();
     if (btnState == HIGH)
     {
@@ -36,7 +36,7 @@ void loop()
             numberOfCars++;
             printMySpot();
             digitalWrite(led, HIGH);
-            delay(1000);
+            delay(100);
             digitalWrite(led, LOW);
         }
     }
@@ -57,7 +57,8 @@ void showParkingStatus()
         lcd.print("Free spots:    ");
         lcd.print(4 - numberOfCars);
         lcd.setCursor(0, 1);
-        lcd.print("                ");
+        lcd.print("Occupied:      ");
+        lcd.print(numberOfCars);
     }
 }
 
@@ -101,7 +102,7 @@ void enQueue()
     if (front == -1)
         front = 0;
     rear = (rear + 1) % SIZE;
-    times[rear] = millis() / 1000;
+    times[rear] = millis() / 100;
 }
 
 // Removing an element
