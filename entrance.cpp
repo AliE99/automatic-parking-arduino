@@ -76,8 +76,16 @@ void printMySpot()
     lcd.setCursor(0, 0);
     lcd.print("Your Spot:      ");
     lcd.setCursor(0, 1);
-    lcd.print("Floor:1   Spot:");
-    lcd.print(4 - rear);
+    if (4 - rear > 2)
+    {
+        lcd.print("Floor:2   Spot:");
+        lcd.print(2 - rear);
+    }
+    else
+    {
+        lcd.print("Floor:1   Spot:");
+        lcd.print(4 - rear);
+    }
 }
 
 // Check if the queue is full
