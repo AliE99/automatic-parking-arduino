@@ -131,21 +131,3 @@ int deQueue()
     }
     return time;
 }
-
-int getTime()
-{
-    int time;
-    time = times[front];
-    if (front == rear)
-    {
-        front = -1;
-        rear = -1;
-    }
-    // Q has only one element, so we reset the
-    // queue after dequeing it. ?
-    else
-    {
-        front = (front + 1) % SIZE;
-    }
-    return (time);
-}
